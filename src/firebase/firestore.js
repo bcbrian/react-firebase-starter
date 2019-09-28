@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
+import { isEqual } from "lodash";
 import { firebase } from "./";
-
 export const db = firebase.firestore();
 
 /*
@@ -23,13 +23,22 @@ CCCCCCCCC
 -- set
 */
 
-export function useFirestore(collection, isRealTime = true, opts = {}) {
+export function useFirestore(collection, isRealTime = true, newOpts = {}) {
   if (typeof isRealTime !== "boolean") {
-    opts = isRealTime;
+    newOpts = isRealTime;
+    isRealTime = true;
   }
-  const values = Object.values(opts);
   const [documentSnapshots, setData] = useState([]);
   const [collectionRef, setCollectionRef] = useState(null);
+
+  const [opts, setOpts] = useState(newOpts);
+  // We are controlling equality!
+  useEffect(() => {
+    if (!isEqual(newOpts, opts)) {
+      setOpts(newOpts);
+    }
+  }, [newOpts, opts]);
+
   useEffect(() => {
     let dbRef = db.collection(collection);
     setCollectionRef(dbRef);
@@ -87,8 +96,7 @@ export function useFirestore(collection, isRealTime = true, opts = {}) {
       });
     }
     return cleanup;
-    // }, [collection, isRealTime, opts]);
-  }, [collection]);
+  }, [collection, isRealTime, opts]);
   return {
     documentSnapshots,
     collectionRef
