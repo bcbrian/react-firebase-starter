@@ -4,7 +4,7 @@ import { firebase } from "./";
 export const AUTHENTICATING = "AUTHENTICATING";
 export const UserContext = React.createContext(AUTHENTICATING);
 
-export function signInViaGitHub() {
+export function signInViaGitHubPopUp() {
   const provider = new firebase.auth.GithubAuthProvider();
   firebase
     .auth()
@@ -28,6 +28,23 @@ export function signInViaGitHub() {
       // ...
     });
 }
+export function signInViaGitHubRedirect() {
+  const provider = new firebase.auth.GithubAuthProvider();
+  firebase.auth().signInWithRedirect(provider);
+}
+
+// export function getRedirectResult(callback) {
+//   firebase
+//     .auth()
+//     .getRedirectResult()
+//     .then(function({ user }) {
+//       callback && typeof callback === 'function' && callback(user);
+//     })
+//     .catch(function(error) {
+//       // Handle Errors here.
+//       console.log(error);
+//     });
+// }
 
 export function signInWithEmailLink(email) {
   const actionCodeSettings = {

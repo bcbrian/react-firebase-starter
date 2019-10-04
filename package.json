@@ -5,6 +5,7 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@emotion/core": "10.0.17",
     "firebase": "6.6.1",
     "lodash": "4.17.15",
     "react": "16.8.6",

@@ -8,15 +8,13 @@ import {
   onAuthStateChanged
 } from "./firebase/auth";
 
+import Index from "./routes/Index";
 import DashBoard from "./routes/DashBoard";
 
 import PrivateRoute from "./components/PrivateRoute";
-import SignInWithEmailLink from "./components/SignInWithEmailLink";
-import UserSection from "./components/UserSection";
-import SignInViaGitHub from "./components/SignInViaGitHub";
-import EmailAndPasswordSignUp from "./components/EmailAndPasswordSignUp";
-import EmailAndPasswordSignIn from "./components/EmailAndPasswordSignIn";
-import "./styles.css";
+import PublicRoute from "./components/PublicRoute";
+
+import "./style.css";
 
 function App() {
   const [user, setUser] = useState(AUTHENTICATING);
@@ -24,19 +22,13 @@ function App() {
   useEffect(() => {
     onAuthStateChanged(user => (user ? setUser(user) : setUser(null)));
   }, []);
+  if (user === AUTHENTICATING) {
+    return <div />;
+  }
   return (
     <UserContext.Provider value={user}>
       <Router>
-        <UserSection />
-
-        <Route path="/sign-in/github" exact component={SignInViaGitHub} />
-        <Route
-          path="/sign-in/passwordless"
-          exact
-          component={SignInWithEmailLink}
-        />
-        <Route path="/sign-up" exact component={EmailAndPasswordSignUp} />
-        <Route path="/sign-in" exact component={EmailAndPasswordSignIn} />
+        <PublicRoute path="/" component={Index} />
         <PrivateRoute path="/dashboard" component={DashBoard} />
       </Router>
     </UserContext.Provider>
