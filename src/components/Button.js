@@ -13,6 +13,13 @@ const buttonStyles = css`
   letter-spacing: 2px;
   display: block;
   text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease 0s;
+
+  &:hover {
+    color: white;
+    background-color: rebeccapurple;
+  }
 `;
 
 export default function Button({ component: Component = "button", ...props }) {

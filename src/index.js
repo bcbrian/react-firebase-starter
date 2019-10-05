@@ -20,7 +20,10 @@ function App() {
   const [user, setUser] = useState(AUTHENTICATING);
   handleSignInWithEmailLink();
   useEffect(() => {
-    onAuthStateChanged(user => (user ? setUser(user) : setUser(null)));
+    onAuthStateChanged(user => {
+      console.log("what?");
+      return user ? setUser(user) : setUser(null);
+    });
   }, []);
   if (user === AUTHENTICATING) {
     return <div />;

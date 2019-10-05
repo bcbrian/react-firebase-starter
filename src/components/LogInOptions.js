@@ -25,6 +25,18 @@ const ulStyles = css`
   justify-content: space-evenly;
   width: 240px;
   height: 320px;
+  background: white;
+  position: absolute;
+  transition: opacity 250ms ease-in;
+
+  &.fade-enter {
+    opacity: 0;
+    z-index: 1;
+  }
+
+  &.fade-enter.fade-enter-active {
+    opacity: 1;
+  }
 `;
 
 const hrStyles = css`

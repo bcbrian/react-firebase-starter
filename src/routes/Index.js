@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
 import React, { useContext } from "react";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Route, Switch } from "react-router-dom";
 
 import { UserContext, AUTHENTICATING } from "../firebase/auth";
@@ -47,7 +48,7 @@ const hrStyles = css`
   width: 100%;
 `;
 
-const Index = () => {
+const Index = ({ location }) => {
   const user = useContext(UserContext);
   if (user === AUTHENTICATING) {
     return null;
@@ -104,17 +105,41 @@ const Index = () => {
         >
           Code Quests
         </h1>
-        <Switch>
-          <Route path="/" exact component={LogInOptions} />
-          <Route path="/sign-in/github" exact component={SignInViaGitHub} />
-          <Route
-            path="/sign-in/passwordless"
-            exact
-            component={SignInWithEmailLink}
-          />
-          <Route path="/sign-up" exact component={EmailAndPasswordSignUp} />
-          <Route path="/sign-in" exact component={EmailAndPasswordSignIn} />
-        </Switch>
+        <div
+          css={css`
+            position: relative;
+            width: 240px;
+            height: 320px;
+          `}
+        >
+          <TransitionGroup>
+            <CSSTransition key={location.key} classNames="fade" timeout={300}>
+              <Switch location={location}>
+                <Route path="/" exact component={LogInOptions} />
+                <Route
+                  path="/sign-in/github"
+                  exact
+                  component={SignInViaGitHub}
+                />
+                <Route
+                  path="/sign-in/passwordless"
+                  exact
+                  component={SignInWithEmailLink}
+                />
+                <Route
+                  path="/sign-up"
+                  exact
+                  component={EmailAndPasswordSignUp}
+                />
+                <Route
+                  path="/sign-in"
+                  exact
+                  component={EmailAndPasswordSignIn}
+                />
+              </Switch>
+            </CSSTransition>
+          </TransitionGroup>
+        </div>
       </div>
     </div>
   );
