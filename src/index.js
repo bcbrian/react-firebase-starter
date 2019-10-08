@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
   AUTHENTICATING,
   UserContext,
@@ -8,11 +8,12 @@ import {
   onAuthStateChanged
 } from "./firebase/auth";
 
+import Auth from "./routes/Auth";
 import Index from "./routes/Index";
 import DashBoard from "./routes/DashBoard";
 
 import PrivateRoute from "./components/PrivateRoute";
-import PublicRoute from "./components/PublicRoute";
+import AuthRoute from "./components/AuthRoute";
 
 import "./style.css";
 
@@ -31,8 +32,12 @@ function App() {
   return (
     <UserContext.Provider value={user}>
       <Router>
-        <PublicRoute path="/" component={Index} />
-        <PrivateRoute path="/dashboard" component={DashBoard} />
+        <Switch>
+          <PrivateRoute path="/dashboard" component={DashBoard} />
+          <AuthRoute path="/auth" component={Auth} />
+          <Route path="/" exact component={Index} />
+          <Route render={() => <div>404</div>} />
+        </Switch>
       </Router>
     </UserContext.Provider>
   );

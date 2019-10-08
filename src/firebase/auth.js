@@ -140,6 +140,7 @@ export function signOut() {
 
 export function onAuthStateChanged(cb) {
   return firebase.auth().onAuthStateChanged(function(user) {
+    console.log("YIKES!");
     cb && typeof cb === "function" && cb(user);
   });
 }

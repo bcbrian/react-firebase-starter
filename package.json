@@ -12,7 +12,8 @@
     "react-dom": "16.8.6",
     "react-router-dom": "5.0.1",
     "react-scripts": "3.0.1",
-    "react-transition-group": "4.3.0"
+    "react-transition-group": "4.3.0",
+    "recharts": "1.7.1"
   },
   "devDependencies": {
     "typescript": "3.3.3"

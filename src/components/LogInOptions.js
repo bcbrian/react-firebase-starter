@@ -55,7 +55,7 @@ const LogInOptions = ({ history }) => {
         <li css={listItemStyles}>
           <Button
             css={buttonStyle}
-            onClick={() => history.push("/sign-in/github")}
+            onClick={() => history.push("/auth/sign-in/github")}
           >
             sign in via github
           </Button>
@@ -63,19 +63,25 @@ const LogInOptions = ({ history }) => {
         <li css={listItemStyles}>
           <Button
             css={buttonStyle}
-            onClick={() => history.push("/sign-in/passwordless")}
+            onClick={() => history.push("/auth/sign-in/passwordless")}
           >
             sign in passwordless
           </Button>
         </li>
         <li css={listItemStyles}>
-          <Button css={buttonStyle} onClick={() => history.push("/sign-in")}>
+          <Button
+            css={buttonStyle}
+            onClick={() => history.push("/auth/sign-in")}
+          >
             sign in
           </Button>
         </li>
         <hr css={hrStyles} />
         <li css={listItemStyles}>
-          <Button css={buttonStyle} onClick={() => history.push("/sign-up")}>
+          <Button
+            css={buttonStyle}
+            onClick={() => history.push("/auth/sign-up")}
+          >
             sign up
           </Button>
         </li>

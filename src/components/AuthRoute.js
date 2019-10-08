@@ -3,7 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 
 import { UserContext, AUTHENTICATING } from "../firebase/auth";
 
-export default function PrivateRoute({ component: Component, ...rest }) {
+export default function AuthRoute({ component: Component, ...rest }) {
   const user = useContext(UserContext);
   if (user === AUTHENTICATING) {
     return null;

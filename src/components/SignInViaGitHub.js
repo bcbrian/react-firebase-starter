@@ -60,7 +60,7 @@ const SignInViaGitHub = ({ history }) => (
       css={css`
         margin: 20px 0 4px 0;
       `}
-      onClick={() => history.push("/")}
+      onClick={() => history.push("/auth")}
     >
       cancel
     </Button>
