@@ -1,10 +1,11 @@
 import React from "react";
 import { signOut } from "../firebase/auth";
 
+import Button from "./Button";
+
 const SignOut = () => (
   <>
-    <h1>sign out</h1>
-    <button onClick={() => signOut()}>sign out</button>
+    <Button onClick={() => signOut()}>sign out</Button>
   </>
 );
 
