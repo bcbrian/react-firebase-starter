@@ -22,7 +22,6 @@ function App() {
   handleSignInWithEmailLink();
   useEffect(() => {
     onAuthStateChanged(user => {
-      console.log("what?");
       return user ? setUser(user) : setUser(null);
     });
   }, []);

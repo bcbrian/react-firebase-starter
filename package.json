@@ -6,7 +6,10 @@
   "main": "src/index.js",
   "dependencies": {
     "@emotion/core": "10.0.17",
+    "@testing-library/jest-dom": "4.1.1",
+    "@testing-library/react": "9.3.0",
     "firebase": "6.6.1",
+    "jest": "24.9.0",
     "lodash": "4.17.15",
     "react": "16.8.6",
     "react-dom": "16.8.6",
@@ -29,5 +32,10 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "jest": {
+    "setupFiles": [
+      "./testSetup.js"
+    ]
+  }
 }
