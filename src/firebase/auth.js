@@ -33,24 +33,24 @@ export function signInViaGitHubRedirect() {
   firebase.auth().signInWithRedirect(provider);
 }
 
-// export function getRedirectResult(callback) {
-//   firebase
-//     .auth()
-//     .getRedirectResult()
-//     .then(function({ user }) {
-//       callback && typeof callback === 'function' && callback(user);
-//     })
-//     .catch(function(error) {
-//       // Handle Errors here.
-//       console.log(error);
-//     });
-// }
+export function getRedirectResult(callback) {
+  firebase
+    .auth()
+    .getRedirectResult()
+    .then(function({ user }) {
+      callback && typeof callback === "function" && callback(user);
+    })
+    .catch(function(error) {
+      // Handle Errors here.
+      console.log(error);
+    });
+}
 
 export function signInWithEmailLink(email) {
   const actionCodeSettings = {
     // URL you want to redirect back to. The domain (www.example.com) for this
     // URL must be whitelisted in the Firebase Console.
-    url: "https://jgr64.csb.app/",
+    url: "https://1r9mg.csb.app",
     // This must be true.
     handleCodeInApp: true
   };
@@ -70,13 +70,16 @@ export function signInWithEmailLink(email) {
 
 export function handleSignInWithEmailLink() {
   // Confirm the link is a sign-in with email link.
+  console.log("hi");
   if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
+    console.log("yo");
     // Additional state parameters can also be passed via URL.
     // This can be used to continue the user's intended action before triggering
     // the sign-in operation.
     // Get the email if available. This should be available if the user completes
     // the flow on the same device where they started it.
     const email = window.localStorage.getItem("emailForSignIn");
+    console.log("test => ", email);
     if (!email) {
       // User opened the link on a different device. To prevent session fixation
       // attacks, ask the user to provide the associated email again. For example:
@@ -90,6 +93,7 @@ export function handleSignInWithEmailLink() {
         // Clear email from storage.
         window.localStorage.removeItem("emailForSignIn");
         // You can access the new user via result.user
+        console.log("user", result);
         // Additional user info profile not available via:
         // result.additionalUserInfo.profile == null
         // You can check if the user is new or existing:
@@ -140,7 +144,7 @@ export function signOut() {
 
 export function onAuthStateChanged(cb) {
   return firebase.auth().onAuthStateChanged(function(user) {
-    console.log("YIKES!");
+    console.log("YIKES!", user);
     cb && typeof cb === "function" && cb(user);
   });
 }

@@ -5,6 +5,7 @@ import {
   AUTHENTICATING,
   UserContext,
   handleSignInWithEmailLink,
+  getRedirectResult,
   onAuthStateChanged
 } from "./firebase/auth";
 
@@ -20,6 +21,9 @@ import "./style.css";
 function App() {
   const [user, setUser] = useState(AUTHENTICATING);
   handleSignInWithEmailLink();
+  getRedirectResult(user => {
+    console.log("LOGGED IN", user);
+  });
   useEffect(() => {
     onAuthStateChanged(user => {
       return user ? setUser(user) : setUser(null);

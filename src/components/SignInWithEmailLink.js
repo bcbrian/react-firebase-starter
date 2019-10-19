@@ -7,7 +7,7 @@ import Button from "./Button";
 import Input from "./Input";
 
 const SignInWithEmailLink = ({ history }) => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("me@bcbrian.com");
   return (
     <div
       css={css`
