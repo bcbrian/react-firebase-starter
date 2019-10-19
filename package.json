@@ -9,7 +9,7 @@
     "@testing-library/jest-dom": "4.1.1",
     "@testing-library/react": "9.3.0",
     "firebase": "6.6.1",
-    "jest": "24.9.0",
+    "firebase-tools": "7.6.1",
     "lodash": "4.17.15",
     "react": "16.8.6",
     "react-dom": "16.8.6",
@@ -25,17 +25,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "firebase": "firebase",
+    "deploy": "yarn build && yarn firebase deploy"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
+  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"],
   "jest": {
-    "setupFiles": [
-      "./testSetup.js"
-    ]
+    "setupFiles": ["./testSetup.js"]
   }
 }
