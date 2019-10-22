@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 
 import { UserContext, AUTHENTICATING } from "../firebase/auth";
 

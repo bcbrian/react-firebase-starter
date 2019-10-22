@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
-import React, { useContext } from "react";
+import React from "react";
 
 const buttonStyles = css`
   background-color: white;

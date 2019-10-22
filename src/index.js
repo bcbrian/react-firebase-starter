@@ -18,6 +18,8 @@ import AuthRoute from "./components/AuthRoute";
 
 import "./style.css";
 
+console.log(process.env.REACT_APP_TEST);
+
 function App() {
   const [user, setUser] = useState(AUTHENTICATING);
   handleSignInWithEmailLink();

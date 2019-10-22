@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import {
   LineChart,
   Line,

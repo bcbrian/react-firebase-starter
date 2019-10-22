@@ -14,40 +14,6 @@ import EmailAndPasswordSignIn from "../components/EmailAndPasswordSignIn";
 
 import HotPinkLogo from "../img/hot-pink-logo.png";
 
-const buttonStyles = css`
-  background-color: white;
-  border: 2px solid rebeccapurple;
-  border-radius: 4px;
-  padding: 8px 12px;
-  text-decoration: none;
-  color: rebeccapurple;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  display: block;
-  text-align: center;
-`;
-
-const listItemStyles = css`
-  list-style-type: none;
-  margin: 12px 0;
-  padding: 8px 0;
-`;
-
-const ulStyles = css`
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: space-evenly;
-  max-width: 320px;
-`;
-
-const hrStyles = css`
-  color: rebeccapurple;
-  width: 100%;
-`;
-
 const Index = ({ location }) => {
   const user = useContext(UserContext);
   if (user === AUTHENTICATING) {

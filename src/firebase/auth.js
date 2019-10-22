@@ -19,12 +19,12 @@ export function signInViaGitHubPopUp() {
     })
     .catch(function(error) {
       // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
-      const credential = error.credential;
+      // const errorCode = error.code;
+      // const errorMessage = error.message;
+      // // The email of the user's account used.
+      // const email = error.email;
+      // // The firebase.auth.AuthCredential type that was used.
+      // const credential = error.credential;
       // ...
     });
 }
@@ -83,7 +83,7 @@ export function handleSignInWithEmailLink() {
     if (!email) {
       // User opened the link on a different device. To prevent session fixation
       // attacks, ask the user to provide the associated email again. For example:
-      email = window.prompt("Please provide your email for confirmation");
+      // email = window.prompt("Please provide your email for confirmation");
     }
     // The client SDK will parse the code from the link for you.
     firebase
@@ -112,8 +112,8 @@ export function emailAndPasswordSignUp(email, password) {
     .createUserWithEmailAndPassword(email, password)
     .catch(function(error) {
       // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
+      // const errorCode = error.code;
+      // const errorMessage = error.message;
       // ...
     });
 }
@@ -123,8 +123,8 @@ export function emailAndPasswordSignIn(email, password) {
     .signInWithEmailAndPassword(email, password)
     .catch(function(error) {
       // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
+      // const errorCode = error.code;
+      // const errorMessage = error.message;
       // ...
     });
 }
