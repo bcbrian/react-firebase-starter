@@ -2,5 +2,5 @@
   "extends": ["react-app"],
   "env": {
     "jquery": true
-  },
+  }
 }
