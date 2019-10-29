@@ -4,14 +4,6 @@
       "views": [
         {
           "id": "codesandbox.browser"
-        },
-        {
-          "id": "codesandbox.browser",
-          "options": {
-            "port": 9005,
-            "url": "https://bw8vu-9005.sse.codesandbox.io"
-          },
-          "closeable": true
         }
       ]
     },
