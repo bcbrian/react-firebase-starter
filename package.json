@@ -1,7 +1,7 @@
 {
-  "name": "new",
+  "name": "the-ultimate-template",
   "version": "1.0.0",
-  "description": "",
+  "description": "Nuff said.",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
@@ -30,5 +30,10 @@
     "firebase": "firebase",
     "deploy": "yarn firebase deploy"
   },
-  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
