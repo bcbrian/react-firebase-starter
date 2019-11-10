@@ -29,4 +29,4 @@ jobs:
                   command: yarn build
             - run:
                   name: Firebase Deploy
-                  command: yarn deploy --token "$FIREBASE_TOKEN" --only hosting --project "$FIREBASE_APP"
+                  command: yarn deploy --token "$FIREBASE_TOKEN" --only hosting,functions --project "$FIREBASE_APP"
