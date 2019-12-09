@@ -46,7 +46,7 @@ const SignInViaGitHub = ({ history }) => (
       `}
       onClick={() => signInViaGitHubPopUp()}
     >
-      Pup-up Sign In
+      Pop-up Sign In
     </Button>
     <Button
       css={css`
